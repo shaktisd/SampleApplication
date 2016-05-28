@@ -30,7 +30,7 @@ public class NewCorefExample {
     Annotation document = new Annotation(input);
     Properties props = new Properties();
     //props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,parse,mention,dcoref");
-    props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,parse,coref");
+    props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,parse,dcoref");
     
     StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
     pipeline.annotate(document);
