@@ -1,5 +1,5 @@
 import edu.stanford.nlp.dcoref.CorefChain;
-import edu.stanford.nlp.dcoref.CorefCoreAnnotations;
+import edu.stanford.nlp.dcoref.CorefCoreAnnotations.CorefChainAnnotation;
 import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.ling.CoreAnnotations.TokensAnnotation;
 import edu.stanford.nlp.ling.CoreLabel;
@@ -22,9 +22,9 @@ public class NewNewCorefExample {
     StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
     pipeline.annotate(document);
 
-	  Map<Integer, CorefChain> coref = document.get(CorefCoreAnnotations.CorefChainAnnotation.class);
+	  Map<Integer, CorefChain> coref = document.get(CorefChainAnnotation.class);
       System.out.println("Co ref is " + coref);
-      if(coref != null ){
+      if(coref == null ){
           System.out.println("Co ref collection is empty");
           return;
       }
