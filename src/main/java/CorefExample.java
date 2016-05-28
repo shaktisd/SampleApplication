@@ -16,7 +16,7 @@ public class CorefExample {
     String input = new String(Files.readAllBytes(Paths.get("src/input.txt")));
     Annotation document = new Annotation(input);
     Properties props = new Properties();
-    props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,parse,mention,dcoref");
+    props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,parse,mention,dcoref,sentiment");
     //props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,parse,dcoref");
     
     StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
