@@ -21,7 +21,7 @@
         </dependency>
         <dependency>
             <groupId>edu.stanford.nlp</groupId>
-            <artifactId>stanford-parser</artifactId>
+            <artifactId>stanford-srparser</artifactId>
             <version>3.6.0</version>
         </dependency>
     </dependencies>
