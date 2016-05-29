@@ -5,6 +5,7 @@ import edu.stanford.nlp.ling.CoreAnnotations;
 import edu.stanford.nlp.pipeline.Annotation;
 import edu.stanford.nlp.pipeline.StanfordCoreNLP;
 import edu.stanford.nlp.util.CoreMap;
+import edu.stanford.nlp.util.IntTuple;
 
 import java.nio.file.Files;
 import java.nio.file.Paths;
@@ -22,14 +23,20 @@ public class CorefExample {
         System.out.println("---");
         System.out.println("coref chains");
         for (CorefChain cc : document.get(CorefCoreAnnotations.CorefChainAnnotation.class).values()) {
-            System.out.println("\t" + cc);
+            if(cc.getMentionsInTextualOrder().size() != 0){
+                System.out.println("\t" + cc);
+                for (CorefChain.CorefMention cm : cc.getMentionsInTextualOrder()) {
+                    String textOfMention = cm.mentionSpan;
+                    IntTuple positionOfMention = cm.position;
+
+                    System.out.println("textOfMention : " + textOfMention);
+                    // System.out.println("positionOfMention : " + positionOfMention);
+                }
+            }
         }
         for (CoreMap sentence : document.get(CoreAnnotations.SentencesAnnotation.class)) {
             System.out.println("---");
-            System.out.println("mentions");
-            for (Mention m : sentence.get(CorefCoreAnnotations.CorefMentionsAnnotation.class)) {
-                System.out.println("\t" + m);
-            }
+
         }
     }
 
