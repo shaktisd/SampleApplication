@@ -17,6 +17,7 @@ public class CorefExample {
         Annotation document = new Annotation(input);
         Properties props = new Properties();
         props.setProperty("annotators", "tokenize,ssplit,pos,lemma,ner,parse,mention,coref");
+        props.setProperty("parse.model","edu/stanford/nlp/models/srparser/englishSR.ser.gz");
         StanfordCoreNLP pipeline = new StanfordCoreNLP(props);
         pipeline.annotate(document);
         System.out.println("---");
